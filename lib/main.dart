@@ -11,13 +11,13 @@ void main() async {
   runApp(
     ChangeNotifierProvider(
       create: (_) => ThemeProvider(),
-      child: const MyApp(),
+      child: const GrowME(),
     ),
   );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class GrowME extends StatelessWidget {
+  const GrowME({super.key});
 
   @override
   Widget build(BuildContext context) {

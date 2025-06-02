@@ -1,15 +1,12 @@
 plugins {
     id("com.android.application")
-    id("kotlin-android")
-    id("dev.flutter.flutter-gradle-plugin")
+    id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
 }
 
 android {
     namespace = "com.example.growme"
-    compileSdk = 34 // Ganti sesuai versi compileSdk Flutter kamu
-
-    ndkVersion = "25.1.8937393" // Ganti jika kamu pakai versi berbeda atau ambil dari flutter.gradle
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.growme"
@@ -22,7 +19,8 @@ android {
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
-            signingConfig = signingConfigs.getByName("debug") // Opsional: jika belum punya release key
+            isShrinkResources = false
+            // signConfig bisa ditambah kalau sudah punya
         }
     }
 
@@ -37,10 +35,8 @@ android {
 }
 
 dependencies {
-    // Firebase BoM (bisa tambahkan modul lain seperti auth, firestore, dll)
     implementation(platform("com.google.firebase:firebase-bom:33.14.0"))
     implementation("com.google.firebase:firebase-analytics")
-    // Tambahkan Firebase Auth jika digunakan:
     implementation("com.google.firebase:firebase-auth")
 }
 

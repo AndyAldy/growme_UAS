@@ -9,6 +9,13 @@ buildscript {
         classpath(kotlin("gradle-plugin", version = "1.9.22"))
     }
 }
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
 val newBuildDir = rootProject.layout.buildDirectory.dir("../../build").get()
 rootProject.layout.buildDirectory.set(newBuildDir)
 
