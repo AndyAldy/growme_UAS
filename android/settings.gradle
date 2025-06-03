@@ -1,0 +1,28 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+
+    def flutterSdkPath = new File(settingsDir, "local.properties").withReader {
+        def props = new Properties()
+        props.load(it)
+        return props['flutter.sdk']
+    }
+
+    includeBuild("${flutterSdkPath}/packages/flutter_tools/gradle")
+}
+
+plugins {
+    id "dev.flutter.flutter-plugin-loader" version "1.0.0"
+}
+
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+include(":app")
